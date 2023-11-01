@@ -34,6 +34,7 @@ android {
 }
 
 dependencies {
+    implementation(Dependencies.main)
     implementation(Dependencies.unitTest)
     implementation(Dependencies.androidUnitTest)
 }

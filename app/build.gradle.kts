@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -38,6 +39,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {
@@ -47,4 +51,14 @@ dependencies {
     implementation(Dependencies.ui)
     implementation(Dependencies.unitTest)
     implementation(Dependencies.androidUnitTest)
+
+    debugImplementation(Dependencies.chuckerDebug)
+    releaseImplementation(Dependencies.chuckerRelease)
+
+    kapt(Dependencies.daggerHiltCompiler)
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
