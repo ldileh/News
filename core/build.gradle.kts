@@ -31,10 +31,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
-    implementation(Dependencies.main)
-    implementation(Dependencies.unitTest)
-    implementation(Dependencies.androidUnitTest)
+    api(Dependencies.main)
+    api(Dependencies.appCompat)
+    api(Dependencies.unitTest)
+    api(Dependencies.androidUnitTest)
 }

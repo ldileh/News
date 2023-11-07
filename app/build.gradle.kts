@@ -41,21 +41,20 @@ android {
     }
     buildFeatures {
         buildConfig = true
+        viewBinding = true
     }
 }
 
 dependencies {
     implementation(project(mapOf("path" to ":core")))
 
-    implementation(Dependencies.main)
     implementation(Dependencies.ui)
-    implementation(Dependencies.unitTest)
-    implementation(Dependencies.androidUnitTest)
+
+    implementation(Dependencies.daggerHiltLibs)
+    kapt(Dependencies.daggerHiltCompiler)
 
     debugImplementation(Dependencies.chuckerDebug)
     releaseImplementation(Dependencies.chuckerRelease)
-
-    kapt(Dependencies.daggerHiltCompiler)
 }
 
 // Allow references to generated code

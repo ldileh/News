@@ -5,8 +5,13 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
  */
 object Dependencies {
     val coreKtx = "androidx.core:core-ktx:${Versions.kotlin}"
+
     val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     val material = "com.google.android.material:material:${Versions.material}"
+    val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+
+    val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
+    val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
 
     val jUnit = "junit:junit:${Versions.jUnit}"
     val jUnitExtension = "androidx.test.ext:junit:${Versions.jUnitExtension}"
@@ -25,25 +30,33 @@ object Dependencies {
     val chuckerDebug = "com.github.chuckerteam.chucker:library:${Versions.chucker}"
     val chuckerRelease = "com.github.chuckerteam.chucker:library-no-op:${Versions.chucker}"
 
+    // others
+    val whatIf = "com.github.skydoves:whatif:${Versions.whatIf}"
     val coil = "io.coil-kt:coil:${Versions.coil}"
-
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+    val sandwich = "com.github.skydoves:sandwich:${Versions.sandwich}"
 
     val main = arrayListOf<String>().apply {
         add(coreKtx)
         add(gson)
-        add(daggerHilt)
         add(retrofit)
         add(retrofitGson)
         add(retrofitInterceptor)
         add(retrofitOkHttp)
         add(coil)
         add(timber)
+        add(activityKtx)
+        add(fragmentKtx)
+    }
+
+    val daggerHiltLibs = arrayListOf<String>().apply {
+        add(daggerHilt)
     }
 
     val ui = arrayListOf<String>().apply {
         add(appCompat)
         add(material)
+        add(constraintLayout)
     }
 
     val unitTest = arrayListOf<String>().apply {
@@ -77,5 +90,11 @@ fun DependencyHandler.androidTestImplementation(list: List<String>) {
 fun DependencyHandler.testImplementation(list: List<String>) {
     list.forEach { dependency ->
         add("testImplementation", dependency)
+    }
+}
+
+fun DependencyHandler.api(list: List<String>) {
+    list.forEach { dependency ->
+        add("api", dependency)
     }
 }
