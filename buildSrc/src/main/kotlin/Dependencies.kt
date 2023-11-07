@@ -47,6 +47,8 @@ object Dependencies {
         add(timber)
         add(activityKtx)
         add(fragmentKtx)
+        add(whatIf)
+        add(sandwich)
     }
 
     val daggerHiltLibs = arrayListOf<String>().apply {
