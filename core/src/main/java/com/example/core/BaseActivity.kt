@@ -4,10 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import com.example.core.utils.MessageUtil
 
 abstract class BaseActivity<T: ViewBinding>(): AppCompatActivity() {
 
     private lateinit var _binding: T
+
+    val messageUtil: MessageUtil by lazy {
+        MessageUtil(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -22,6 +22,12 @@ class LoginViewModel @Inject constructor(
     private val _message = MutableLiveData<String>()
     val message: LiveData<String> = _message
 
+    private val _loginResult = MutableLiveData<Boolean>()
+    val loginResult: LiveData<Boolean> = _loginResult
+
+    private val _isSessionExist = MutableLiveData<Boolean>()
+    val isSessionExist: LiveData<Boolean> = _isSessionExist
+
     fun login(username: String, password: String) {
         CoroutineScope(Dispatchers.IO).launch {
 
@@ -30,9 +36,16 @@ class LoginViewModel @Inject constructor(
             // add some dummy progress
             delay(2000)
             _isProgressLogin.postValue(false)
-            if(!authRepository.login(username, password)){
+
+            val loginResult = authRepository.login(username, password)
+            _loginResult.postValue(loginResult)
+            if(!loginResult){
                 _message.postValue("Failed login")
             }
         }
+    }
+
+    fun checkSession(){
+        _isSessionExist.value = authRepository.isLoggedIn()
     }
 }
