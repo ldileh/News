@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.core.domain.repository.AuthRepository
+import com.skydoves.whatif.whatIf
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -39,7 +40,7 @@ class LoginViewModel @Inject constructor(
 
             val loginResult = authRepository.login(username, password)
             _loginResult.postValue(loginResult)
-            if(!loginResult){
+            whatIf(!loginResult){
                 _message.postValue("Failed login")
             }
         }

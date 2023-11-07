@@ -7,6 +7,7 @@ import com.example.core.BaseActivity
 import com.example.core.utils.ext.value
 import com.example.simpleboilerplate.databinding.ActivityLoginBinding
 import com.example.simpleboilerplate.ui.view.main.MainActivity
+import com.skydoves.whatif.whatIf
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +21,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         // execute check session on user
         viewModel.checkSession()
         viewModel.isSessionExist.observe(this@LoginActivity){ isExist ->
-            if(isExist){
+            whatIf(isExist){
                 MainActivity.showPage(this@LoginActivity, isClearAllPages = true)
             }
         }
@@ -35,7 +36,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
             }
 
             loginResult.observe(this@LoginActivity){ result ->
-                if(result){
+                whatIf(result){
                     MainActivity.showPage(this@LoginActivity, isClearAllPages = true)
                 }
             }
