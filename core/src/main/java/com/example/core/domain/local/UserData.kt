@@ -3,7 +3,7 @@ package com.example.core.domain.local
 import android.content.Context
 import android.content.SharedPreferences
 import com.example.core.config.LocalConfig
-import com.example.core.model.UserModel
+import com.example.core.model.local.UserModel
 import com.example.core.utils.ext.safe
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException

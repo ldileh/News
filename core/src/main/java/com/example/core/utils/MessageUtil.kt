@@ -1,11 +1,9 @@
-package com.example.core.utils.ext
+package com.example.core.utils
 
 import android.content.Context
 import android.widget.Toast
 
-class MessageExt(
-    private val context: Context
-) {
+class MessageUtil(private val context: Context) {
 
     var type: Type = Type.TOAST
 
@@ -25,9 +23,9 @@ class MessageExt(
 }
 
 fun Context.showDefaultMessage(message: String){
-    MessageExt(this)
+    MessageUtil(this)
         .apply {
-            type = MessageExt.Type.TOAST
+            type = MessageUtil.Type.TOAST
         }
         .show(message)
 }

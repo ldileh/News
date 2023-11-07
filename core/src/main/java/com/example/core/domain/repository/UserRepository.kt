@@ -1,7 +1,7 @@
 package com.example.core.domain.repository
 
 import com.example.core.domain.local.UserData
-import com.example.core.model.UserModel
+import com.example.core.model.local.UserModel
 
 class UserRepository(private val userData: UserData): IUserRepository {
 

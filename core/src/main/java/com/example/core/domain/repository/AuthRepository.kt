@@ -2,25 +2,35 @@ package com.example.core.domain.repository
 
 import com.example.core.domain.local.AuthData
 import com.example.core.domain.local.UserData
-import com.example.core.model.dummyUser
+import com.example.core.domain.remote.AuthService
+import com.example.core.model.local.dummyUser
 
 class AuthRepository(
     private val authData: AuthData,
     private val userData: UserData,
+    private val authService: AuthService
 ): IAuthRepository {
 
-    override fun login(username: String, password: String) {
-        // todo: create method remote data to check authentication user is valid or not
+    // create method remote data to check authentication user is valid or not
+    override suspend fun login(username: String, password: String): Boolean {
+        val response = authService.onLogin(username, password)
+        if(response != null){
+            // save state of user
+            authData.setSessionUser(response.token)
+            userData.store(response.user)
 
-        // save state of user
-        authData.setSessionUser("token of auth user")
-        userData.store(dummyUser())
+            return true
+        }
+
+        return false
     }
 
-    override fun logout() {
-        // TODO: if needed, create some business logic before clear state of session login user
+    // if needed, create some business logic before clear state of session login user
+    override suspend fun logout(): Boolean {
         authData.clear()
         userData.clear()
+
+        return true
     }
 
     override fun isLoggedIn(): Boolean = authData.isLoggedIn()
@@ -28,7 +38,7 @@ class AuthRepository(
 
 interface IAuthRepository{
 
-    fun login(username: String, password: String)
-    fun logout()
+    suspend fun login(username: String, password: String): Boolean
+    suspend fun logout(): Boolean
     fun isLoggedIn(): Boolean
 }
