@@ -24,21 +24,23 @@
 
 ## Architecture
 
+![Main Pattern of App](https://github.com/ldileh/Simple-Boilerplate-Android/blob/master/Sample%20Of%20Simple%20Architecture%20Android%20(1).jpg)
+![Modules on project](https://github.com/ldileh/Simple-Boilerplate-Android/blob/master/Architecture%20modules%20Android.jpg)
+
 ### User Interface
 
 This layer makes use of the Android Framework and is used to create all of our UI components to display inside of activities or fragments.
 
 ### Repository
+![Modules on project](https://github.com/ldileh/Simple-Boilerplate-Android/blob/master/Data%20Layer.jpg)
 
-This layer's responsibility is to handle the 
+This layer's responsibility is to handle the business logic on app.
 
 ### Domain
 
 The domain layer responsibility is to simply contain the UseCase instance used to retrieve data from the Data layer and pass it onto the Presentation layer. 
 
 ### Local
-
-
 
 ### Remote
 
