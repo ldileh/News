@@ -3,7 +3,7 @@ package com.example.core.domain.remote
 import com.example.core.model.local.UserModel
 import com.example.core.model.remote.LoginResponseModel
 
-class AuthService {
+class AuthDataSource {
 
     suspend fun onLogin(username: String, password: String): LoginResponseModel?{
         if(username.isEmpty()){

@@ -2,13 +2,12 @@ package com.example.core.domain.repository
 
 import com.example.core.domain.local.AuthData
 import com.example.core.domain.local.UserData
-import com.example.core.domain.remote.AuthService
-import com.example.core.model.local.dummyUser
+import com.example.core.domain.remote.AuthDataSource
 
 class AuthRepository(
     private val authData: AuthData,
     private val userData: UserData,
-    private val authService: AuthService
+    private val authService: AuthDataSource
 ): IAuthRepository {
 
     // create method remote data to check authentication user is valid or not
