@@ -41,4 +41,7 @@ dependencies {
     api(Dependencies.appCompat)
     api(Dependencies.unitTest)
     api(Dependencies.androidUnitTest)
+
+    debugImplementation(Dependencies.chuckerDebug)
+    releaseImplementation(Dependencies.chuckerRelease)
 }

@@ -35,6 +35,7 @@ object Dependencies {
     val coil = "io.coil-kt:coil:${Versions.coil}"
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     val sandwich = "com.github.skydoves:sandwich:${Versions.sandwich}"
+    val sandwichRetrofit = "com.github.skydoves:sandwich-retrofit:${Versions.sandwich}"
 
     val main = arrayListOf<String>().apply {
         add(coreKtx)
@@ -49,6 +50,7 @@ object Dependencies {
         add(fragmentKtx)
         add(whatIf)
         add(sandwich)
+        add(sandwichRetrofit)
     }
 
     val daggerHiltLibs = arrayListOf<String>().apply {

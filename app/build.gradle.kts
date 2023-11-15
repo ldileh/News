@@ -26,10 +26,14 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            buildConfigField("String", "BASE_URL", AppConfig.baseUrlProd)
         }
 
         debug {
             isMinifyEnabled = false
+
+            buildConfigField("String", "BASE_URL", AppConfig.baseUrlDev)
         }
     }
     compileOptions {
@@ -52,9 +56,6 @@ dependencies {
 
     implementation(Dependencies.daggerHiltLibs)
     kapt(Dependencies.daggerHiltCompiler)
-
-    debugImplementation(Dependencies.chuckerDebug)
-    releaseImplementation(Dependencies.chuckerRelease)
 }
 
 // Allow references to generated code
