@@ -24,7 +24,7 @@
 
 ## Architecture
 
-![Main Pattern of App](https://github.com/ldileh/Simple-Boilerplate-Android/blob/master/Sample%20Of%20Simple%20Architecture%20Android%20(1).jpg)
+![Main Pattern of App](https://github.com/ldileh/Simple-Boilerplate-Android/blob/0fa3273a59c410d2a7b824f8dc8699cb57f607cd/Sample%20Of%20Simple%20Architecture%20Android%20(2).jpg)
 ![Modules on project](https://github.com/ldileh/Simple-Boilerplate-Android/blob/master/Architecture%20modules%20Android.jpg)
 
 ### User Interface
