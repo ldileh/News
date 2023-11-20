@@ -13,10 +13,6 @@ object Dependencies {
     val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
     val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
 
-    val jUnit = "junit:junit:${Versions.jUnit}"
-    val jUnitExtension = "androidx.test.ext:junit:${Versions.jUnitExtension}"
-    val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
-
     val gson = "com.google.code.gson:gson:${Versions.gson}"
 
     val daggerHilt = "com.google.dagger:hilt-android:${Versions.daggerHilt}"
@@ -36,6 +32,12 @@ object Dependencies {
     val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     val sandwich = "com.github.skydoves:sandwich:${Versions.sandwich}"
     val sandwichRetrofit = "com.github.skydoves:sandwich-retrofit:${Versions.sandwich}"
+
+    // unit testing
+    val jUnit = "junit:junit:${Versions.jUnit}"
+    val jUnitExtension = "androidx.test.ext:junit:${Versions.jUnitExtension}"
+    val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    val daggerHiltKotlinTest = "com.google.dagger:hilt-android-compiler:${Versions.daggerHiltTestKotlin}"
 
     val main = arrayListOf<String>().apply {
         add(coreKtx)

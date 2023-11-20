@@ -44,4 +44,6 @@ dependencies {
 
     debugImplementation(Dependencies.chuckerDebug)
     releaseImplementation(Dependencies.chuckerRelease)
+
+    kaptTest(Dependencies.daggerHiltKotlinTest)
 }

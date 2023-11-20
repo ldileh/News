@@ -13,6 +13,7 @@ object Versions {
     const val jUnitExtension = "1.1.5"
     const val espresso = "3.5.1"
     const val buildGradle = "8.1.2"
+    const val daggerHiltTestKotlin = "2.44"
 
     const val gson = "2.10.1"
 
