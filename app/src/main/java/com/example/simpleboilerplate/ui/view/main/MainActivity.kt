@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.viewModels
 import com.example.core.BaseActivity
-import com.example.core.utils.PermissionResult
-import com.example.core.utils.registerPermission
-import com.example.core.utils.runPermissionNotification
+import com.example.core.utils.ext.PermissionResult
+import com.example.core.utils.ext.registerPermission
+import com.example.core.utils.ext.runPermissionNotification
 import com.example.simpleboilerplate.databinding.ActivityMainBinding
 import com.example.simpleboilerplate.ui.view.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint

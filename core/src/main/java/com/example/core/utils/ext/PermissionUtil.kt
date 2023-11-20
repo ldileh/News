@@ -1,4 +1,4 @@
-package com.example.core.utils
+package com.example.core.utils.ext
 
 import android.Manifest
 import android.content.Intent
