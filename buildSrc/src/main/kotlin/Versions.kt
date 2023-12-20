@@ -5,6 +5,7 @@ object Versions {
     const val appCompat = "1.6.1"
     const val material = "1.10.0"
     const val constraintLayout = "2.1.4"
+    const val swipeRefreshLayout = "1.1.0"
 
     const val jUnit = "4.13.2"
     const val activityKtx = "1.8.0"

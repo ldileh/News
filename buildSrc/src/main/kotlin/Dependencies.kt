@@ -9,6 +9,7 @@ object Dependencies {
     val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     val material = "com.google.android.material:material:${Versions.material}"
     val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    val swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayout}"
 
     val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
     val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
@@ -66,6 +67,7 @@ object Dependencies {
         add(appCompat)
         add(material)
         add(constraintLayout)
+        add(swipeRefreshLayout)
     }
 
     val unitTest = arrayListOf<String>().apply {
