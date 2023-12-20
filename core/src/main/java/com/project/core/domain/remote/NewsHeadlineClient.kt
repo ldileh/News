@@ -29,7 +29,7 @@ class NewsHeadlineClient(private val newsService: NewsService): PagingSource<Int
         return try {
             val response = newsService.getTopHeadlines(page = pageNumber)
             val pagedResponse = response.body()
-            val data = pagedResponse?.articles
+            val data = pagedResponse?.articles?.filterNot { it.author == null }
             val totalResult = pagedResponse?.totalResults.safe()
             val totalPage = ceil(totalResult.toFloat() / PAGE_SIZE)
                 .let { if (it < 1) 1 else it }
