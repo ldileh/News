@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SimpleBoilerPlateAndroid"
+rootProject.name = "News"
 include(":app")
 include(":core")
