@@ -4,6 +4,8 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.project.core.model.remote.Article
 import com.project.core.utils.ext.safe
+import timber.log.Timber
+import kotlin.math.ceil
 
 class NewsHeadlineClient(private val newsService: NewsService): PagingSource<Int, Article>() {
 
@@ -28,8 +30,10 @@ class NewsHeadlineClient(private val newsService: NewsService): PagingSource<Int
             val response = newsService.getTopHeadlines(page = pageNumber)
             val pagedResponse = response.body()
             val data = pagedResponse?.articles
-            val totalPage = (pagedResponse?.totalResults.safe() / PAGE_SIZE)
+            val totalResult = pagedResponse?.totalResults.safe()
+            val totalPage = ceil(totalResult.toFloat() / PAGE_SIZE)
                 .let { if (it < 1) 1 else it }
+                .toInt()
 
             var nextPageNumber: Int? = null
             if (pageNumber < totalPage) {
