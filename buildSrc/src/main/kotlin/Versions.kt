@@ -29,4 +29,6 @@ object Versions {
     const val timber = "5.0.1"
     const val whatIf = "1.1.4"
     const val sandwich = "2.0.0"
+
+    const val paging = "3.1.1"
 }
