@@ -39,6 +39,8 @@ object Dependencies {
     val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     val daggerHiltKotlinTest = "com.google.dagger:hilt-android-compiler:${Versions.daggerHiltTestKotlin}"
 
+    const val paging = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
+
     val main = arrayListOf<String>().apply {
         add(coreKtx)
         add(gson)
@@ -53,6 +55,7 @@ object Dependencies {
         add(whatIf)
         add(sandwich)
         add(sandwichRetrofit)
+        add(paging)
     }
 
     val daggerHiltLibs = arrayListOf<String>().apply {

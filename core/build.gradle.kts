@@ -25,12 +25,14 @@ android {
             )
 
             buildConfigField("String", "BASE_URL", AppConfig.baseUrlProd)
+            buildConfigField("String", "API_KEY", AppConfig.apiKey)
         }
 
         debug {
             isMinifyEnabled = false
 
             buildConfigField("String", "BASE_URL", AppConfig.baseUrlDev)
+            buildConfigField("String", "API_KEY", AppConfig.apiKey)
         }
     }
     compileOptions {
