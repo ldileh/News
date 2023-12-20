@@ -26,14 +26,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-
-            buildConfigField("String", "BASE_URL", AppConfig.baseUrlProd)
         }
 
         debug {
             isMinifyEnabled = false
-
-            buildConfigField("String", "BASE_URL", AppConfig.baseUrlDev)
         }
     }
     compileOptions {

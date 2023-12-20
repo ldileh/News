@@ -2,10 +2,11 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.example.core"
+    namespace = "com.project.core"
     compileSdk = AppConfig.compileSdk
 
     defaultConfig {
@@ -17,11 +18,19 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            buildConfigField("String", "BASE_URL", AppConfig.baseUrlProd)
+        }
+
+        debug {
+            isMinifyEnabled = false
+
+            buildConfigField("String", "BASE_URL", AppConfig.baseUrlDev)
         }
     }
     compileOptions {
@@ -32,6 +41,7 @@ android {
         jvmTarget = "11"
     }
     buildFeatures{
+        buildConfig = true
         viewBinding = true
     }
 }
@@ -44,6 +54,9 @@ dependencies {
 
     debugImplementation(Dependencies.chuckerDebug)
     releaseImplementation(Dependencies.chuckerRelease)
+
+    implementation(Dependencies.daggerHiltLibs)
+    kapt(Dependencies.daggerHiltCompiler)
 
     kaptTest(Dependencies.daggerHiltKotlinTest)
 }

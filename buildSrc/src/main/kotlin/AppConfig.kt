@@ -1,5 +1,5 @@
 object AppConfig {
-    const val appPackage = "com.example.simpleboilerplate"
+    const val appPackage = "com.project.news"
 
     const val compileSdk = 34
     const val minSdk = 24
