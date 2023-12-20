@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.viewModels
-import com.project.core.BaseActivity
+import com.project.core.base.BaseActivity
 import com.project.core.utils.ext.PermissionResult
 import com.project.core.utils.ext.registerPermission
 import com.project.core.utils.ext.runPermissionNotification
