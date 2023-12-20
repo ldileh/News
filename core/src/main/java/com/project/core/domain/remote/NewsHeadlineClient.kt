@@ -7,8 +7,6 @@ import com.project.core.utils.ext.safe
 
 class NewsHeadlineClient(private val newsService: NewsService): PagingSource<Int, Article>() {
 
-    private val pageSize = 20
-
     override fun getRefreshKey(state: PagingState<Int, Article>): Int?{
         // Try to find the page key of the closest page to anchorPosition, from
         // either the prevKey or the nextKey, but you need to handle nullability
@@ -30,7 +28,7 @@ class NewsHeadlineClient(private val newsService: NewsService): PagingSource<Int
             val response = newsService.getTopHeadlines(page = pageNumber)
             val pagedResponse = response.body()
             val data = pagedResponse?.articles
-            val totalPage = (pagedResponse?.totalResults.safe() / pageSize)
+            val totalPage = (pagedResponse?.totalResults.safe() / PAGE_SIZE)
                 .let { if (it < 1) 1 else it }
 
             var nextPageNumber: Int? = null
@@ -46,5 +44,10 @@ class NewsHeadlineClient(private val newsService: NewsService): PagingSource<Int
         } catch (e: Exception) {
             LoadResult.Error(e)
         }
+    }
+
+    companion object{
+
+        const val PAGE_SIZE = 20
     }
 }

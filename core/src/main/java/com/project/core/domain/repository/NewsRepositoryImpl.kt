@@ -13,7 +13,7 @@ class NewsRepositoryImpl @Inject constructor(
 ): NewsRepository {
 
     override suspend fun getHeadlines(): Flow<PagingData<Article>> = Pager(
-        config = PagingConfig(pageSize = 20, prefetchDistance = 2),
+        config = PagingConfig(pageSize = NewsHeadlineClient.PAGE_SIZE, prefetchDistance = 2),
         pagingSourceFactory = { newsClient }
     ).flow
 }
