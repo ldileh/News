@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.project.core.model.remote.Article
 import com.project.core.utils.ext.safe
-import timber.log.Timber
 import kotlin.math.ceil
 
 class NewsHeadlineClient(private val newsService: NewsService): PagingSource<Int, Article>() {
