@@ -1,6 +1,5 @@
 package com.project.core.di
 
-import com.project.core.domain.remote.NewsHeadlineClient
 import com.project.core.domain.remote.NewsService
 import dagger.Module
 import dagger.Provides
@@ -16,8 +15,4 @@ object RemoteModule {
     @Provides
     @Singleton
     fun provideNewsService(retrofit: Retrofit) = retrofit.create(NewsService::class.java)
-
-    @Provides
-    @Singleton
-    fun provideNewsClient(newsService: NewsService) = NewsHeadlineClient(newsService)
 }

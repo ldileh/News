@@ -4,16 +4,17 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.project.core.domain.remote.NewsHeadlineClient
+import com.project.core.domain.remote.NewsService
 import com.project.core.model.remote.Article
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class NewsRepositoryImpl @Inject constructor(
-    private val newsClient: NewsHeadlineClient
+    private val newsService: NewsService
 ): NewsRepository {
 
-    override suspend fun getHeadlines(): Flow<PagingData<Article>> = Pager(
+    override fun getHeadlines(): Flow<PagingData<Article>> = Pager(
         config = PagingConfig(pageSize = NewsHeadlineClient.PAGE_SIZE, prefetchDistance = 2),
-        pagingSourceFactory = { newsClient }
+        pagingSourceFactory = { NewsHeadlineClient(newsService) }
     ).flow
 }
