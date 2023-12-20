@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SimpleBoilerPlateAndroid</string>
+    <string name="app_name">News</string>
     <string name="text_username">Username</string>
     <string name="text_submit">Submit</string>
     <string name="text_password">Password</string>

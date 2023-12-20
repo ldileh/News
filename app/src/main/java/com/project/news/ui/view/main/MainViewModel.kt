@@ -1,22 +1,19 @@
 package com.project.news.ui.view.main
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.skydoves.sandwich.message
-import com.skydoves.sandwich.onError
-import com.skydoves.sandwich.onSuccess
+import androidx.paging.PagingData
+import com.project.core.domain.repository.NewsRepository
+import com.project.core.model.remote.Article
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import timber.log.Timber
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
-): ViewModel() {
+class MainViewModel @Inject constructor(newsRepository: NewsRepository): ViewModel() {
 
-    private val _resultLogout = MutableLiveData<Boolean>()
-    val resultLogout: LiveData<Boolean> = _resultLogout
+    val headlinesNews: Flow<PagingData<Article>> = newsRepository
+        .getHeadlines()
+        .flowOn(Dispatchers.IO)
 }
