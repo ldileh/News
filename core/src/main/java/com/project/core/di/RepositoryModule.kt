@@ -1,18 +1,16 @@
 package com.project.core.di
 
-import com.project.core.domain.remote.GithubDataSource
-import com.project.core.domain.repository.GithubRepository
+import com.project.core.domain.repository.NewsRepository
+import com.project.core.domain.repository.NewsRepositoryImpl
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.components.SingletonComponent
 
 @Module
-@InstallIn(ViewModelComponent::class)
-class RepositoryModule {
+@InstallIn(SingletonComponent::class)
+interface RepositoryModule {
 
-    @Provides
-    @ViewModelScoped
-    fun provideGithubRepository(dataSource: GithubDataSource) = GithubRepository(dataSource)
+    @Binds
+    fun provideNewsRepository(newsRepositoryImpl: NewsRepositoryImpl): NewsRepository
 }

@@ -1,23 +1,23 @@
 package com.project.core.di
 
-import com.project.core.domain.remote.GithubDataSource
-import com.project.core.domain.remote.GithubService
+import com.project.core.domain.remote.NewsHeadlineClient
+import com.project.core.domain.remote.NewsService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 @Module
-@InstallIn(ViewModelComponent::class)
-class RemoteModule {
+@InstallIn(SingletonComponent::class)
+object RemoteModule {
 
     @Provides
-    @ViewModelScoped
-    fun provideGithubService(retrofit: Retrofit) = retrofit.create(GithubService::class.java)
+    @Singleton
+    fun provideNewsService(retrofit: Retrofit) = retrofit.create(NewsService::class.java)
 
     @Provides
-    @ViewModelScoped
-    fun provideGithubDataSource(githubService: GithubService) = GithubDataSource(githubService)
+    @Singleton
+    fun provideNewsClient(newsService: NewsService) = NewsHeadlineClient(newsService)
 }
