@@ -2,7 +2,7 @@ package com.project.core.utils.ext
 
 import android.widget.EditText
 
-fun String?.safe() = this ?: ""
+fun String?.safe(default: String = "") = this ?: default
 
 fun Int?.safe() = this ?: 0
 
