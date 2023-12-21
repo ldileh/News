@@ -15,7 +15,6 @@ import com.project.core.utils.ext.PermissionResult
 import com.project.core.utils.ext.registerPermission
 import com.project.core.utils.ext.runPermissionNotification
 import com.project.core.utils.ext.safe
-import com.project.news.R
 import com.project.news.databinding.ActivityMainBinding
 import com.project.news.ui.view.adapter.NewsAdapter
 import com.project.news.ui.view.listener.IMainActivity
