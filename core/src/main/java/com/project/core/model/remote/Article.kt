@@ -3,6 +3,7 @@ package com.project.core.model.remote
 
 import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
+import java.io.Serializable
 
 @Keep
 data class Article(
@@ -22,4 +23,4 @@ data class Article(
     val url: String?,
     @SerializedName("urlToImage")
     val urlToImage: String?
-)
+): Serializable
