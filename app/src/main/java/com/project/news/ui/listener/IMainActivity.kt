@@ -1,4 +1,4 @@
-package com.project.news.ui.view.listener
+package com.project.news.ui.listener
 
 import com.project.core.model.remote.Article
 
