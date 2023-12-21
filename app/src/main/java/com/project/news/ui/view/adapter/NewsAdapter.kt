@@ -10,6 +10,7 @@ import com.project.core.model.remote.Article
 import com.project.core.utils.ext.dp
 import com.project.core.utils.ext.formatDate
 import com.project.core.utils.ext.safe
+import com.project.news.R
 import com.project.news.databinding.ListItemNewsBinding
 import com.skydoves.whatif.whatIfNotNull
 
@@ -36,10 +37,9 @@ class NewsAdapter(
                 tvAuthor.text = data.source?.name.safe()
                 tvTime.text = data.publishedAt.safe().formatDate("dd MMMM yyyy")
 
-                ivBanner.load(data.urlToImage.safe(
-                    "https://placeholder.pics/svg/300/DEDEDE/555555/Image%20Not%20Found"
-                )){
+                ivBanner.load(data.urlToImage.safe()){
                     crossfade(true)
+                    placeholder(R.drawable.img_placeholder)
                 }
 
                 root.setOnClickListener { onSelectItem(data) }
