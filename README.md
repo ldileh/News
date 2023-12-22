@@ -17,6 +17,11 @@
 * [whatIf](https://github.com/skydoves/WhatIf)
 * [sandwich](https://github.com/ChuckerTeam/chucker)
 
+## Screenshot of App
+![Fist Page](https://github.com/ldileh/Simple-Boilerplate-Android/blob/master/Screenshot_1703216729.png)
+![Item News](https://github.com/ldileh/Simple-Boilerplate-Android/blob/master/Screenshot_1703216725.png)
+![Detail News](https://github.com/ldileh/Simple-Boilerplate-Android/blob/master/Screenshot_1703216738.png)
+
 ## Requirements
 
 * JDK 11
