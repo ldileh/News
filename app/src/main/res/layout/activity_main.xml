@@ -72,5 +72,8 @@
         android:maxLines="8"
         android:ellipsize="end"
         android:visibility="gone"
+        android:layout_marginHorizontal="16dp"
+        android:textAlignment="gravity"
+        android:gravity="center_horizontal"
         tools:text="Error"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

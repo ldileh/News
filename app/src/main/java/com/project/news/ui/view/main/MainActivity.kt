@@ -18,6 +18,7 @@ import com.project.core.utils.ext.registerPermission
 import com.project.core.utils.ext.runPermissionNotification
 import com.project.core.utils.ext.safe
 import com.project.core.utils.ext.show
+import com.project.news.R
 import com.project.news.databinding.ActivityMainBinding
 import com.project.news.ui.adapter.NewsAdapter
 import com.project.news.ui.listener.IMainActivity
@@ -98,7 +99,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IViewModel<MainViewMod
             if(loadState is LoadState.Error){
                 getBinding().tvErrorMessage.apply {
                     show()
-                    text = loadState.error.message.safe() + "\ntry Refresh"
+                    text = getString(R.string.text_error_common, loadState.error.message.safe())
                 }
             }else{
                 getBinding().tvErrorMessage.hide()
