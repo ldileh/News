@@ -8,17 +8,19 @@ import java.util.TimeZone
 
 
 @SuppressLint("SimpleDateFormat")
-fun String.formatDate(targetFormat: String = "yyyy-MM-dd HH:mm:ss"): String {
+fun String?.formatDate(targetFormat: String = "yyyy-MM-dd HH:mm:ss"): String {
+    val dateString = this ?: ""
+
     return try {
         val sourceFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").apply {
             timeZone = TimeZone.getTimeZone("UTC")
         }
         val destFormat = SimpleDateFormat(targetFormat)
-        val convertedDate = sourceFormat.parse(this) ?: return this
+        val convertedDate = sourceFormat.parse(dateString) ?: return dateString
 
-        return destFormat.format(convertedDate) ?: this
+        return destFormat.format(convertedDate) ?: dateString
     }catch (e: ParseException){
         Timber.d(e)
-        this
+        dateString
     }
 }
