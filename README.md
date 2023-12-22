@@ -18,9 +18,9 @@
 * [sandwich](https://github.com/ChuckerTeam/chucker)
 
 ## Screenshot of App
-![Fist Page](https://github.com/ldileh/Simple-Boilerplate-Android/blob/master/Screenshot_1703216729.png)
-![Item News](https://github.com/ldileh/Simple-Boilerplate-Android/blob/master/Screenshot_1703216725.png)
-![Detail News](https://github.com/ldileh/Simple-Boilerplate-Android/blob/master/Screenshot_1703216738.png)
+![Fist Page](https://github.com/ldileh/News-Android-Native/blob/master/Screenshot_1703216729.png)
+![Item News](https://github.com/ldileh/News-Android-Native/blob/master/Screenshot_1703216725.png)
+![Detail News](https://github.com/ldileh/News-Android-Native/blob/master/Screenshot_1703216738.png)
 
 ## Requirements
 
