@@ -1,4 +1,4 @@
-package com.project.news.ui.view.adapter
+package com.project.news.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

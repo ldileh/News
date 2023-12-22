@@ -40,6 +40,7 @@
                 android:background="?selectableItemBackground"
                 android:padding="8dp"
                 android:src="@drawable/ic_filter"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -62,4 +63,14 @@
             app:spanCount="2"
             tools:listitem="@layout/list_item_news" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/tv_error_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:maxLines="8"
+        android:ellipsize="end"
+        android:visibility="gone"
+        tools:text="Error"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,5 +1,6 @@
 package com.project.news.ui.view.main
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.result.ActivityResultLauncher
@@ -12,13 +13,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.project.core.base.BaseActivity
 import com.project.core.model.remote.Article
 import com.project.core.utils.ext.PermissionResult
+import com.project.core.utils.ext.hide
 import com.project.core.utils.ext.registerPermission
 import com.project.core.utils.ext.runPermissionNotification
 import com.project.core.utils.ext.safe
+import com.project.core.utils.ext.show
 import com.project.news.databinding.ActivityMainBinding
-import com.project.news.ui.view.adapter.NewsAdapter
-import com.project.news.ui.view.listener.IMainActivity
-import com.project.news.ui.view.listener.IViewModel
+import com.project.news.ui.adapter.NewsAdapter
+import com.project.news.ui.listener.IMainActivity
+import com.project.news.ui.listener.IViewModel
+import com.project.news.ui.view.news.detail.NewsDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChangedBy
@@ -71,7 +75,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IViewModel<MainViewMod
     }
 
     override fun onNewsSelected(article: Article) {
-        messageUtil.show(article.title.safe())
+        NewsDetailActivity.showPage(this@MainActivity, article)
     }
 
     private fun ActivityMainBinding.configureViews(){
@@ -84,9 +88,21 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), IViewModel<MainViewMod
         viewRefresh.setOnRefreshListener { newsAdapter.refresh() }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun RecyclerView.configureNews(){
         newsAdapter.addLoadStateListener {
-            getBinding().viewRefresh.isRefreshing = it.refresh is LoadState.Loading
+            val loadState = it.refresh
+
+            getBinding().viewRefresh.isRefreshing = loadState is LoadState.Loading
+
+            if(loadState is LoadState.Error){
+                getBinding().tvErrorMessage.apply {
+                    show()
+                    text = loadState.error.message.safe() + "\ntry Refresh"
+                }
+            }else{
+                getBinding().tvErrorMessage.hide()
+            }
         }
 
         adapter = newsAdapter
